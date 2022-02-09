@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;700&display=swap');
+@font-face {
+  font-family: "Digital";
+  src: url('assets/ds_digital/DS-DIGI.TTF');
+}
+body {
+  margin: 0;
+  padding: 0;
+  background: url(images/bg.svg) black center no-repeat;
+  height: 100vh;
+  color: #fff;
+  font-family: 'Red Hat Display', sans-serif;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem 4rem;
+}
+
+header > time {
+  font-size: 24px;
+}
+
+.greeting {
+  display: flex;
+  align-items: flex-start;
+  gap: .5rem;
+}
+.greeting > h1 {
+  font-size: 24px;
+  font-weight: normal;
+}
+
+.greeting > img {
+  border-radius: 100%;
+}
+
+main {
+  padding: 2rem 4rem;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+
+#time {
+  font-family: 'Digital', sans-serif;
+  font-size: 16rem;
+}
+
+.location {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.location > p {
+  font-size: 24px;
+}
+
+.search_bar {
+  width: 520px;
+  height: 46px;
+  border-radius: 16px;
+  border: 1px solid #929292;
+  background: rgba(9, 9, 9, 0.49);
+  display: flex;
+  align-items: center;
+  padding: 0 8px;
+}
+
+.search_bar > input {
+  flex: 1;
+  height: 46px;
+  border-radius: 16px;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #fff;
+}
+
+.search_bar > input::placeholder {
+  color: #929292;
+}
+
+.search_bar > img {
+  margin: 8px;
+  cursor: pointer;
+  transition: transform 0.1s;
+}
+
+.search_bar > img:active {
+  transform: translate(1px, 1px);
+}
