@@ -4,28 +4,27 @@ const greeting_messages = [
   'Boa noite,'
 ];
 
-async function renderLocation(position) {
+async function getLocationFromGoogle() {
+  const google_url = 'https://maps.googleapis.com/maps/api/geocode/json?address=128+Rua+Geni+Naime+Silva&key=AIzaSyCS_8yhBoQYaClW7ta9wuUmqZBi_-4F5js';
+
+  const fetchResponse = await fetch(google_url, { method: 'GET' });
+  const json = await fetchResponse.json();
+  const cityObject = json.results[0].address_components.filter((components) => components.types.indexOf('administrative_area_level_2') != -1)[0];
+
+  return cityObject.long_name
+}
+
+async function renderLocation() {
   const locationLabel = document.getElementById('location_name');
-  const baseGeoLocationUrl = `
-    https://geocode.xyz/${position.coords.latitude},${position.coords.longitude}?json=1
-  `
-  const fetchResponse = await fetch(baseGeoLocationUrl, {method: 'GET'})
-  const json = await fetchResponse.json()
-  const { city, region } = json
+  const locationName = await getLocationFromGoogle()
 
   locationLabel.classList.remove('empty-location')
   locationLabel.classList.remove('empty-animation')
-  if (!region && !city) {
-    locationLabel.innerHTML = 'Florestal'
+  if (!locationName) {
+    locationLabel.innerHTML = 'Florestal 🦇'
   } else {
-    locationLabel.innerHTML = region || city
+    locationLabel.innerHTML = locationName
   }
-}
-
-function getLocation() {
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(renderLocation);
-  } 
 }
 
 function renderTime() {
@@ -70,7 +69,7 @@ function main() {
 }
 
 function render() {
-  getLocation()
+  renderLocation()
 
 
   setInterval(renderTime, 1000);
