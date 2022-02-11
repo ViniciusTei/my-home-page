@@ -13,6 +13,8 @@ async function renderLocation(position) {
   const json = await fetchResponse.json()
   const { city, region } = json
 
+  locationLabel.classList.remove('empty-location')
+  locationLabel.classList.remove('empty-animation')
   if (!region && !city) {
     locationLabel.innerHTML = 'Florestal'
   } else {
@@ -44,8 +46,14 @@ function renderTime() {
 
   }).split(' ')[1]
 
+  dateLabel.classList.remove('empty-date')
+  dateLabel.classList.remove('empty-animation')
   dateLabel.innerHTML = date;
+  dateLabel.setAttribute('datetime', date);
+  timeLabel.classList.remove('empty-time')
+  timeLabel.classList.remove('empty-animation')
   timeLabel.innerHTML = time;
+  timeLabel.setAttribute('datetime', time);
 
   if (dateNow.getHours() < 12) {
     greetingLabel.innerHTML = greeting_messages[0]

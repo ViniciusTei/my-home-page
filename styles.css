@@ -51,6 +51,36 @@ main {
   font-size: 16rem;
 }
 
+@keyframes gradient {
+	0% {
+		background-position: 0% 70%;
+	}
+	100% {
+		background-position: 80% 0%;
+	}
+}
+
+.empty-date {
+  height: 24px;
+  width: 200px;
+}
+
+.empty-location {
+  height: 24px;
+  width: 100px;
+}
+
+.empty-time {
+  height: 16rem;
+  width: 500px;
+}
+
+.empty-animation {
+  background: linear-gradient(to right, rgb(46, 46, 46, 0.6) 8%, rgb(82, 82, 82, 0.6) 18%, rgb(46, 46, 46, 0.6)33%);
+	background-size: 400% 400%;
+	animation: gradient 3s ease infinite;
+}
+
 .location {
   display: flex;
   align-items: center;
