@@ -6,6 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>My Home Page</title>
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="player.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
   <header>
@@ -28,7 +30,25 @@
       <input id="google_search" type="text" aria-label="Pesquise no Google" placeholder="Pesquise no Google">
       <img id="btn_search" src="./images/research.svg" alt="research" width="23px" height="23px">
     </div>
+
+    <div class="player">
+      <div class="player_controls">
+        <button id="player_previous"><span class="material-icons md-light">skip_previous</span></button>
+        <button id="player_action"><span class="material-icons md-light action_btn" id="action_icon">play_arrow</span></button>
+        <button id="player_next"><span class="material-icons md-light">skip_next</span></button>
+      </div>
+      <div class="player_content">
+        <div class="player_title_content">
+          <strong id="player_title"></strong>
+          <small id="player_artists"></small>
+        </div>
+        <img src="" alt="album" id="player_img">
+      </div>
+    </div>
+    
   </main>
+  <script src="https://sdk.scdn.co/spotify-player.js"></script>
+  <script src="spotify.js"></script>
   <script src="index.js"></script>
 </body>
 </html>

@@ -4,12 +4,52 @@ const greeting_messages = [
   'Boa noite,'
 ];
 
+const my_favorites_pages = [
+  {
+    url: 'https://www.twitch.tv/',
+    img_url: 'https://static.twitchcdn.net/assets/favicon-32-e29e246c157142c94346.png',
+    name: 'Twitch TV'
+  },
+  {
+    url: 'https://www.youtube.com',
+    img_url: 'https://www.youtube.com/s/desktop/5783224d/img/favicon_144x144.png',
+    name: 'Youtube'
+  }
+]
+
+function renderFavorites() {
+  const container = document.getElementsByClassName('favorite_container')[0]
+
+  const elements = my_favorites_pages.map(page => {
+    const img_element = document.createElement('img')
+    img_element.src = page.img_url
+    img_element.alt = page.name
+    img_element.width = '32px'
+    img_element.height = '32px'
+    const link_element = document.createElement('a')
+    link_element.href = page.url
+    link_element.innerHTML = page.name
+
+    const el = document.createElement('div')
+
+    el.append(img_element)
+    el.append(link_element)
+    return el
+  })
+
+  elements.forEach(el => container.append(el))
+
+  
+}
+
 async function getLocationFromGoogle() {
   const google_url = 'https://maps.googleapis.com/maps/api/geocode/json?address=128+Rua+Geni+Naime+Silva&key=AIzaSyCS_8yhBoQYaClW7ta9wuUmqZBi_-4F5js';
 
   const fetchResponse = await fetch(google_url, { method: 'GET' });
   const json = await fetchResponse.json();
-  const cityObject = json.results[0].address_components.filter((components) => components.types.indexOf('administrative_area_level_2') != -1)[0];
+  const cityObject = json.results[0].address_components.filter(
+    (components) => components.types.indexOf('administrative_area_level_2') != -1
+  )[0];
 
   return cityObject.long_name
 }
@@ -70,7 +110,7 @@ function main() {
 
 function render() {
   renderLocation()
-
+  // renderFavorites()
 
   setInterval(renderTime, 1000);
 

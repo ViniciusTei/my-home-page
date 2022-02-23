@@ -1,0 +1,49 @@
+.player {
+  position: fixed;
+  bottom: 1rem;
+  left: 1rem;
+  max-width: 400px;
+  height: 70px;
+  display: flex;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  padding: 4px;
+}
+
+.player_content {
+  display: flex;
+  align-items: center;
+}
+
+.player_content > img {
+  height: 64px;
+  width: 64px;
+}
+
+.player_title_content {
+  padding: 8px;
+}
+
+.player_title_content > * {
+  display: block;
+}
+
+button {
+  background: transparent;
+  border: none;
+  outline: none;
+}
+
+.material-icons.md-light { color: rgba(255, 255, 255, 1); }
+.material-icons.md-light.md-inactive { color: rgba(255, 255, 255, 0.3); }
+
+.action_btn {
+  border: 1px solid #fff;
+  border-radius: 100%;
+  padding: .25rem;
+}
+
+.player_controls {
+  display: flex;
+  align-items: center;
+}
