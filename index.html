@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+  <script src="https://kit.fontawesome.com/a8336dacef.js" crossorigin="anonymous"></script>
   <title>My Home Page</title>
   <link rel="stylesheet" href="styles.css">
 </head>
@@ -29,6 +31,28 @@
       <img id="btn_search" src="./images/research.svg" alt="research" width="23px" height="23px">
     </div>
 
+    <div class="flex gap-4 w-full items-center justify-center my-6">
+      <a href="https://youtube.com" class="min-w-[70px] text-center">
+        <div class="border-1 border-black rounded shadow-md flex items-center justify-center p-4">
+          <i class="fa-brands fa-youtube fa-2xl" style="color: #ed333b;"></i>
+        </div>
+        <p>YouTube</p>
+      </a>
+      <a href="https://github.com" class="min-w-[70px] text-center">
+        <div class="border-1 border-black rounded shadow-md flex items-center justify-center p-4">
+          <i class="fa-brands fa-github fa-2xl"></i>
+        </div>
+        <p>GitHub</p>
+      </a>
+      <a href="https://twitch.tv" class="min-w-[70px] text-center">
+        <div class="border-1 border-black rounded shadow-md flex items-center justify-center p-4">
+          <i class="fa-brands fa-twitch fa-2xl" style="color: #6441a5;"></i>
+        </div>
+        <p>Twitch</p>
+      </a>
+
+      <favorite-container icon="fa-youtube" color="#ed333b" label="YouTube"></favorite-container>
+    </div>
   </main>
   <script src="index.js"></script>
 </body>
