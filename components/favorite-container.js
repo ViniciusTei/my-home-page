@@ -1,5 +1,4 @@
-const template = document.createElement("template")
-template.innerHTML = `
+const template = `
   <a data-link href="" class="min-w-[70px] text-center">
     <div class="border-1 border-black rounded shadow-md flex items-center justify-center p-4">
       <i data-icon class="fa-brands fa-2xl"></i>
@@ -11,12 +10,10 @@ template.innerHTML = `
 class FavoriteContainer extends HTMLElement {
   constructor() {
     super()
-    const shadow = this.attachShadow({ mode: "open" })
-    shadow.append(template.content.cloneNode(true))
-
-    this.link = shadow.querySelector("[data-link]")
-    this.icon = shadow.querySelector("[data-icon]")
-    this.label = shadow.querySelector("[data-label]")
+    this.innerHTML = template
+    this.link = this.querySelector("[data-link]")
+    this.icon = this.querySelector("[data-icon]")
+    this.label = this.querySelector("[data-label]")
   }
 
   static get observedAttributes() {
@@ -24,7 +21,6 @@ class FavoriteContainer extends HTMLElement {
   }
  
   attributeChangedCallback(name, oldValue, newValue) {
-    console.log(name, oldValue, newValue)
     switch (name) {
       case "icon":
         this.updateIcon(newValue) 
