@@ -1,9 +1,9 @@
 const template = `
-  <a data-link href="" class="min-w-[70px] text-center">
-    <div class="border-1 border-black rounded shadow-md flex items-center justify-center p-4">
+  <a data-link href="" class="min-w-[70px] text-center hover:opacity-80" target="_blank">
+    <div class="bg-black rounded-t shadow-md flex items-center justify-center p-4 px-6 pt-6">
       <i data-icon class="fa-brands fa-2xl"></i>
     </div>
-    <p data-label></p>
+    <p data-label class="bg-black pb-2 px-2 rounded-b"></p>
   </a>
 `
 
